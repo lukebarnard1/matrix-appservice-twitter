@@ -118,6 +118,7 @@ var cli = new AppService.Cli({
         log.info("Init", "Created user '"+regObj.sender_localpart+"'.");
       }).catch( (err) => {
         if (err.errcode !== "M_USER_IN_USE") {
+          log.error("Init", err);
           log.info("Init", "Failed to create bot user '"+regObj.sender_localpart+"'. %s", err.errcode);
         }
       });
